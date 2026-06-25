@@ -22,7 +22,10 @@ type ClusterLike = {
   eventId?: unknown
 }
 
-const wsEndpoint = import.meta.env.VITE_WS_ENDPOINT ?? 'http://localhost:8080/ws'
+const wsEndpoint = (() => {
+  const base = import.meta.env.VITE_WS_BASE_URL || import.meta.env.VITE_WS_ENDPOINT || 'http://localhost:8080/ws'
+  return base.endsWith('/ws') ? base : base.replace(/\/+$/, '') + '/ws'
+})()
 
 const riskColorMap: Record<RiskLevel, string> = {
   HIGH: 'red',
@@ -244,7 +247,7 @@ useEffect(() => {
 
   client.connect({}, () => {
 
-    client.subscribe("/topic/risk-updates", (message) => {
+    client.subscribe(`/topic/risk-updates/${eventId}`, (message) => {
 
       try {
         const payload = JSON.parse(message.body)
@@ -260,7 +263,9 @@ useEffect(() => {
   return () => {
     try {
       client.disconnect(() => {})
-    } catch {}
+    } catch (error) {
+      console.error('WebSocket disconnect error', error)
+    }
   }
 
 }, [eventId])

@@ -1,3 +1,31 @@
+# GeoWatch
+
+[![Live Demo](https://img.shields.io/badge/Live-Demo-success)](https://geo-watch.pages.dev/)
+[![Performance Report](https://img.shields.io/badge/Performance-Report-blue)](./GeoWatch_Scalability_Performance_Validation_Report.md)
+[![Backend](https://img.shields.io/badge/Backend-Spring%20Boot-green)](#)
+[![Database](https://img.shields.io/badge/Database-PostgreSQL-blue)](#)
+[![Realtime](https://img.shields.io/badge/Realtime-WebSockets-orange)](#)
+[![Algorithm](https://img.shields.io/badge/Algorithm-DBSCAN-red)](#)
+
+## Performance Highlights
+
+| Metric                       | Result             |
+| ---------------------------- | ------------------ |
+| REST Requests Processed      | **88,000+**        |
+| Peak Throughput              | **732.99 req/sec** |
+| Concurrent REST Users        | **250 Users**      |
+| Concurrent WebSocket Clients | **500+ Clients**   |
+| Message Delivery Success     | **100%**           |
+| Message Loss                 | **0**              |
+| Connection Failures          | **0**              |
+| DBSCAN Clustering Latency    | **0.92 ms**        |
+| Load Testing Tool            | **k6**             |
+
+---
+
+
+
+
 ## GeoWatch – Project Overview
 
 GeoWatch is a real-time crowd safety monitoring platform designed for large public events.  
@@ -71,7 +99,7 @@ GeoWatch aggregates these reports and applies **geospatial clustering** to detec
 
 ### Event Creation Page
 
-![Event Creation](img2.jpeg)
+![Event Creation](img2.png)
 
 *Figure 2: Admin interface used to create and configure a new event with location and event details.*
 
@@ -79,7 +107,7 @@ GeoWatch aggregates these reports and applies **geospatial clustering** to detec
 
 ### Event Map (Initial State)
 
-![Empty Event Map](img3.jpeg)
+![Empty Event Map](img3.png)
 
 *Figure 3: Admin dashboard displaying the event map before any incidents are reported.*
 
@@ -87,7 +115,7 @@ GeoWatch aggregates these reports and applies **geospatial clustering** to detec
 
 ### Heatmap Visualization
 
-![Heatmap Display](img4.jpeg)
+![Heatmap Display](img4.png)
 
 *Figure 4: Real-time heatmap generated from clustered incidents showing potential risk zones.*
 
